@@ -4,7 +4,7 @@ const https = require("https");
 const fs = require("fs");
 
 const server = http.createServer((req, res) => {
-  if (req.url === "/") {
+  if (req.url === "/getTimeStories") {
     https.get("https://time.com/", (response) => {
       let data = [];
 
