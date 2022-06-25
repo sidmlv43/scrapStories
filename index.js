@@ -4,6 +4,12 @@ const https = require("https");
 const fs = require("fs");
 
 const server = http.createServer((req, res) => {
+  if (req.url === "/") {
+    res.writeHead(200, {
+      "Content-type": "text/html",
+    });
+    res.end('<a href="/getTimeStories">Please tap me to get latest news </a>');
+  }
   if (req.url === "/getTimeStories") {
     https.get("https://time.com/", (response) => {
       let data = [];
